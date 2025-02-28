@@ -7,7 +7,7 @@ interface ShareProps {
 //${state ? "absolute" : "hidden"}
 const share = ({ state, setChange }: ShareProps) => {
   const [copy, setCopy] = useState<string>("");
-  const link = window.location.href;
+  const link = decodeURIComponent(window.location.href);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(link);
